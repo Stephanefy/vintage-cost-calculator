@@ -1,0 +1,44 @@
+/* keep your existing colors, radius, sizes as you like */
+.list-container {
+    border-collapse: collapse;
+    max-width: 560px;
+    background-color: blueviolet;
+    border-radius: 10px;
+    width: 100%;
+    table-layout: fixed;
+}
+
+/* Make body scrollable */
+.list-container tbody {
+    display: block;
+    max-height: 240px; /* tweak height as needed */
+    overflow-y: auto;
+    width: 100%;
+}
+
+/* Keep header and body rows aligned */
+.list-container thead tr,
+.list-container tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.list-container tbody tr {
+    cursor: pointer;
+}
+.list-container tbody td:hover {
+    opacity: .7;
+}
+
+/* Optional: give equal widths to the 4 columns */
+.list-container th,
+.list-container td {
+    width: 25%;
+}
+
+/* Your existing row sizing can stay */
+tr {
+    height: 50px;
+    padding: 2rem;
+}

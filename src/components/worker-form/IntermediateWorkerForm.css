@@ -1,0 +1,31 @@
+.worker-name-input {
+    background-color: dimgray;
+    padding: 1rem;
+    border: none;
+    height: full;
+}
+
+.add-worker-btn {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.add-worker-btn:active {
+    transform: scale(0.95) translateY(0);
+    /* Reset hover lift if active */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    /* Reduced shadow */
+}
+
+.intermediate-form-container {
+    margin: auto;
+    display: flex;
+    justify-items: center;
+    padding: 2rem;
+    height: 20px;
+}
