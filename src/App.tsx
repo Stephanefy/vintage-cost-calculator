@@ -1,4 +1,6 @@
-import TableList from "./components/table/TableList";
+import TotalButton from "./components/button/TotalButton";
+import ContributionsTable from "./components/table/contributions-table/ContributionsTable";
+import TableList from "./components/table/worker-cost-table/WorkerCostTableList";
 import IntermediateWorkerForm from "./components/worker-form/IntermediateWorterForm";
 import { WorkerCountContextProvider } from "./context/WorkerCountContext";
 import "./index.css";
@@ -16,8 +18,18 @@ export function App() {
       <h1>Coûts vendangeurs</h1>
       <WorkerCountContextProvider>
         <div className="worker-count-form-container">
-          <IntermediateWorkerForm />
-          <TableList />
+          <div className="input-validation-group">
+            <IntermediateWorkerForm />
+            <TotalButton />
+          </div>
+          <div>
+            <h3>Coûts travailleurs brut</h3>
+            <TableList />
+          </div>
+          <div>
+            <h3>Rappel tableaux des charges</h3>
+            <ContributionsTable />
+          </div>
         </div>
       </WorkerCountContextProvider>
     </div>

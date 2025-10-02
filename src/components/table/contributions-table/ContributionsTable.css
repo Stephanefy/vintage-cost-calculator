@@ -1,40 +1,53 @@
 /* keep your existing colors, radius, sizes as you like */
-.list-container {
+.contributions-table {
     border-collapse: collapse;
-    max-width: 560px;
-    background-color: blueviolet;
+    background-color: rgb(127, 67, 183);
     border-radius: 10px;
     width: 100%;
     table-layout: fixed;
 }
 
 /* Make body scrollable */
-.list-container tbody {
+.contributions-table tbody {
+    background-color: hsl(125, 15%, 83%);
     display: block;
     max-height: 240px; /* tweak height as needed */
     overflow-y: auto;
     width: 100%;
+    color: black;
+    overflow: hidden;
+
 }
 
 /* Keep header and body rows aligned */
-.list-container thead tr,
-.list-container tbody tr {
+.contributions-table thead tr,
+.contributions-table tbody tr {
     display: table;
     width: 100%;
     table-layout: fixed;
+    border: 0.5px solid black;
 }
 
-.list-container tbody tr {
+.contributions-table tbody tr {
     cursor: pointer;
 }
-.list-container tbody td:hover {
+.contributions-table tbody td:hover {
     opacity: .7;
 }
 
 /* Optional: give equal widths to the 4 columns */
-.list-container th,
-.list-container td {
+.contributions-table th {
     width: 25%;
+}
+.contributions-table td {
+    width: 25%;
+    border: 0.5px solid black;
+}
+
+.contributions-table-cell-header {
+    background-color: rgb(145, 97, 189);
+    font-weight: bold;
+
 }
 
 /* Your existing row sizing can stay */

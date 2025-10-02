@@ -19,7 +19,9 @@ export default function IntermediateWorkerForm() {
             name: workerName,
             baseHours: 0,
             overtimeHours: 0,
-            hourRate: 12.0
+            hourRate: 12.0,
+            overtimeCoeff: 0,
+            total: 0
         }
         const newWorkers = [...workers, newWorker]
 

@@ -3,6 +3,8 @@
     padding: 1rem;
     border: none;
     height: full;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .add-worker-btn {
@@ -25,7 +27,12 @@
 .intermediate-form-container {
     margin: auto;
     display: flex;
-    justify-items: center;
     padding: 2rem;
-    height: 20px;
+    justify-items: center;
+}
+
+.input-validation-group {
+    display: flex;
+    justify-items: center;
+    align-items: center;
 }

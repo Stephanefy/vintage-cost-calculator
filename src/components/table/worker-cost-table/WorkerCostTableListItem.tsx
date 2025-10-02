@@ -3,8 +3,8 @@ import {
   useWorkerCountContextProvider,
   type Worker,
 } from "@/context/WorkerCountContext";
-import './Table.css'
-import CellInput from "./cell-input/CellInput";
+import './WorkerCostTable.css'
+import CellInput from "../cell-input/CellInput";
 
 interface Props {
   worker: Worker;
@@ -13,10 +13,6 @@ interface Props {
 export default function TableListItem({ worker }: Props) {
   
   const [editingCells, setEditingCells] = useState<Set<string>>(new Set())  
-
-  
-
-
 
   const addEditingCell = (cellId: string) => {
     const newEditingCells = new Set(editingCells)
@@ -33,6 +29,7 @@ export default function TableListItem({ worker }: Props) {
   const baseHoursInputId = useId();
   const overtimeHoursInputId = useId();
   const hourRateInputId = useId();
+  const overtimeCoeffInputId = useId();
 
 
   return (
@@ -59,6 +56,19 @@ export default function TableListItem({ worker }: Props) {
       }}>{
         editingCells.has(hourRateInputId) ? <CellInput type="hourRate" removeEditingCell={removeEditingCell} workerId={worker.id} inputId={hourRateInputId}/> : worker.hourRate
       }</td>
+      <td
+      className={`${worker.overtimeHours === 0 && 'disabled-cell'}`}
+      id={overtimeCoeffInputId}
+      aria-disabled={worker.overtimeHours === 0 ? true : false}
+      onDoubleClick={(e) => {
+        addEditingCell(e.currentTarget.id)
+      }}>{
+        editingCells.has(overtimeCoeffInputId) ? <CellInput type="overtimeCoeff" removeEditingCell={removeEditingCell} workerId={worker.id} inputId={overtimeCoeffInputId}/> : worker.overtimeCoeff
+      }
+      </td>
+      <td>
+        {worker.total}€
+      </td>
     </tr>
   );
 }

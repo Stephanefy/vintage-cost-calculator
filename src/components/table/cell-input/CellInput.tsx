@@ -3,7 +3,7 @@ import "./CellInput.css";
 import { useWorkerCountContextProvider } from "@/context/WorkerCountContext";
 
 interface CellInputProps {
-    type: "baseHours" | "overtimeHours" | "hourRate";
+    type: "baseHours" | "overtimeHours" | "hourRate" | "overtimeCoeff";
     workerId: string;
     inputId: string;
     removeEditingCell: (cellId: string) => void;
@@ -34,18 +34,23 @@ export default function CellInput({ type, workerId, inputId, removeEditingCell }
 
             switch (type) {
                 case "baseHours":
-                    setWorkers(workers.map(worker => worker.id === workerId ? { ...worker, baseHours: Number(value) } : worker));
+                    setWorkers(workers.map(worker => worker.id === workerId ? { ...worker, baseHours: Number(value), total: worker.total + Number(value) * worker.hourRate } : worker));
                     break;
                 case "overtimeHours":
-                    setWorkers(workers.map(worker => worker.id === workerId ? { ...worker, overtimeHours: Number(value) } : worker));
+                    setWorkers(workers.map(worker => worker.id === workerId ? { ...worker, overtimeHours: Number(value), total: worker.total + Number(value) * worker.hourRate } : worker));
                     break;
                 case "hourRate":
-                    setWorkers(workers.map(worker => worker.id === workerId ? { ...worker, hourRate: Number(value) } : worker));
+                    setWorkers(workers.map(worker => worker.id === workerId ? { ...worker, hourRate: Number(value), total: worker.total * worker.hourRate } : worker));
+                    break;
+                case "overtimeCoeff":
+                    setWorkers(workers.map(worker => worker.id === workerId ? { ...worker, overtimeCoeff: Number(value), total: worker.total * (Number(value)) } : worker));
+                    break;
+                default:
                     break;
             }
+
         }
     }
-
     return (
         <input 
             ref={inputRef}

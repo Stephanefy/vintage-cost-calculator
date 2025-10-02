@@ -7,6 +7,8 @@ This pet project explores Bun while practicing a dynamic table with interactive,
 - [ ] Add variables like days, incentives, and other extras for realism
 - [ ] Implement a backend with Bun
 - [ ] Enhance the UI and design to create a more authentic winery atmosphere
+- [ ] Add a overlay modal that explain what the taxes and contributions are for
+- [ ] Make the rates table editable and dynamic
 
 To install dependencies:
 

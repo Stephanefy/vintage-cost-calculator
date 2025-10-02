@@ -5,7 +5,9 @@ export type Worker = {
     name: string
     baseHours: number,
     overtimeHours: number,
-    hourRate: number
+    hourRate: number,
+    overtimeCoeff: number,
+    total: number
 }
 
 type WorkerContextvalue = {
@@ -35,7 +37,7 @@ export const WorkerCountContextProvider = ({ children }: PropsWithChildren) => {
 export const useWorkerCountContextProvider = () => {
 
     const ctx = useContext(WorkerCountContext);
-    if (!ctx) throw new Error('this context must be used within a WorkerCountContextProvider');
+    if (!ctx) throw new Error('Le composant doit être intégré dans un composant provider parent');
 
     return ctx;
 

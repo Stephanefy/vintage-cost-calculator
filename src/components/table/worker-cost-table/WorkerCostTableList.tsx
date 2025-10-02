@@ -1,11 +1,9 @@
 import { useWorkerCountContextProvider } from "@/context/WorkerCountContext";
-import "./Table.css";
-import TableListItem from "./TableListItem";
+import "./WorkerCostTable.css";
+import TableListItem from "./WorkerCostTableListItem";
 
 export default function TableList() {
   const { workers } = useWorkerCountContextProvider();
-
-  console.log(workers);
 
   return (
     <table className="list-container">
@@ -15,11 +13,13 @@ export default function TableList() {
           <th> heures travaillées</th>
           <th> heures supplémentaires </th>
           <th> taux horaire</th>
+          <th> coeff heures supp</th>
+          <th> sous-total </th>
         </tr>
       </thead>
       <tbody>
         {workers.map((w) => (
-          <TableListItem worker={w} />
+          <TableListItem key={w.id} worker={w} />
         ))}
       </tbody>
     </table>
